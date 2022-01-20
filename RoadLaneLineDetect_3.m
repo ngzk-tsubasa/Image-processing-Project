@@ -1,21 +1,21 @@
 clear;
 m = imread('roadpic5.jpg');
-m2 = rgb2gray(m);  %Âà¦Ç¶¥
-g = fspecial('gaussian',[5,5],5); %°ª´µ¼Ò½kÂoªi
-mg2 = imfilter(m2,g);             %°ª´µ¼Ò½k
-bw = edge(mg2,'canny',[0,0.4]);   %canny Ãä½t°»´ú
+m2 = rgb2gray(m);  %è½‰ç°éš
+g = fspecial('gaussian',[5,5],5); %é«˜æ–¯æ¨¡ç³Šæ¿¾æ³¢
+mg2 = imfilter(m2,g);             %é«˜æ–¯æ¨¡ç³Š
+bw = edge(mg2,'canny',[0,0.4]);   %canny é‚Šç·£åµæ¸¬
 %figure,imshow(bw),impixelinfo;
 
 xi = [0 255 509 509 0];
-yi = [173 0 0 334 334]; %xi,yi: ROI°Ï°ì
+yi = [173 0 0 334 334]; %xi,yi: ROIå€åŸŸ
 roi = roipoly(m,xi,yi);
 roim = bw.*roi;
 %figure,imshow(roim);
 figure,subplot(1,2,1),imshow(bw),title('after canny');
 subplot(1,2,2),imshow(roim),title('after canny and roi');
 
-[H,T,R] = hough(roim); %ÀN¤ÒÂà´«
-P = houghpeaks(H,3,'threshold',ceil(0.3*max(H(:)))); %¨ú¤T­Ó·¥­È
+[H,T,R] = hough(roim); %éœå¤«è½‰æ›
+P = houghpeaks(H,3,'threshold',ceil(0.3*max(H(:)))); %å–ä¸‰å€‹æ¥µå€¼
 
 figure,imshow(H,[],'XData',T,'YData',R,'InitialMagnification','fit');
 xlabel('\theta'); ylabel('\rho');
