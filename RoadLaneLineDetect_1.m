@@ -1,9 +1,9 @@
 clear;
 m = imread('roadpic1.jpg');
-m2 = rgb2gray(m); %Âà¦Ç¶¥
-g = fspecial('gaussian',[5,5],11); %°ª´µ¼Ò½kÂoªi
-mg2 = imfilter(m2,g);              %°ª´µ¼Ò½k
-bw = edge(mg2,'canny',[0,0.7]);    %canny Ãä½t°»´ú
+m2 = rgb2gray(m); %Ã‚Ã Â¦Ã‡Â¶Â¥
+g = fspecial('gaussian',[5,5],11); %Â°ÂªÂ´ÂµÂ¼Ã’Â½kÃ‚oÂªi
+mg2 = imfilter(m2,g);              %Â°ÂªÂ´ÂµÂ¼Ã’Â½k
+bw = edge(mg2,'canny',[0,0.7]);    %canny ÃƒÃ¤Â½tÂ°Â»Â´Ãº
 
 
 %xi = [0 490 540 1020 1020 514 0];
